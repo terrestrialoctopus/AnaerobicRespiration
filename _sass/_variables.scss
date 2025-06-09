@@ -4,19 +4,19 @@
 //
 
 // 颜色使用opencolor https://yeun.github.io/open-color/
-// 主题色可选 red, pink, grape, violet, indigo, blue, cyan, gray, green, lime, yellow
-// 默认为gray，如果需要更换，可以直接将gray并替换成你想要的颜色，例如，查找gray，替换indigo，全部替换，保存，push，完成！
+// 主题色可选 red, pink, grape, violet, indigo, blue, cyan, cyan, green, lime, yellow
+// 默认为cyan，如果需要更换，可以直接将cyan并替换成你想要的颜色，例如，查找cyan，替换indigo，全部替换，保存，push，完成！
 
 
 // Colors
-$blue: $oc-gray-8;
+$blue: $oc-cyan-8;
 
-// Grays
+// cyans
 $black: #000;
-$darkerGray: #222;
-$darkGray: #333;
-$gray: #666;
-$lightGray: #eee;
+$darkercyan: #222;
+$darkcyan: #333;
+$cyan: #666;
+$lightcyan: #eee;
 $white: #fff;
 
 // Font stacks
@@ -33,38 +33,38 @@ $base-font-size: 16px;
 $small-font-size: 14px;
 
 // Colors
-$base-color: $oc-gray-8;
-$base-lighten-color: $oc-gray-6;
-$base-lightener-color: $oc-gray-4;
+$base-color: $oc-cyan-8;
+$base-lighten-color: $oc-cyan-6;
+$base-lightener-color: $oc-cyan-4;
 
-$background-color: $oc-gray-0;
+$background-color: $oc-cyan-0;
 $background-lighten-color: hsla(210, 17%, 98%, 0.42);
 
 $text-color: $base-color;
-$link-color: $oc-gray-8;
-$link-lighten-color: $oc-gray-6;
-$link-bghv-color: $oc-gray-0;
-$divider-color: $oc-gray-1;
+$link-color: $oc-cyan-8;
+$link-lighten-color: $oc-cyan-6;
+$link-bghv-color: $oc-cyan-0;
+$divider-color: $oc-cyan-1;
 
 $error-color:$oc-red-8;
 
-$table-border-color: $oc-gray-2;
-$table-background-color: $oc-gray-1;
+$table-border-color: $oc-cyan-2;
+$table-background-color: $oc-cyan-1;
 
 $blockquote-color: $base-lighten-color;
-$blockquote-border-color: $oc-gray-3;
+$blockquote-border-color: $oc-cyan-3;
 
-$footnote-link-border-color: $oc-gray-1;
-$footnote-link-background-over-color: $oc-gray-1;
+$footnote-link-border-color: $oc-cyan-1;
+$footnote-link-background-over-color: $oc-cyan-1;
 
 // $selection-color: $oc-black;
-$selection-background-color: $oc-gray-3;
+$selection-background-color: $oc-cyan-3;
 
-$tag-index-label-background-color: $oc-gray-2;
+$tag-index-label-background-color: $oc-cyan-2;
 $tag-index-count-background-color: hsla(210, 7%, 56%, 0.102);
 
-$footer-border-color: $oc-gray-2;
-$footer-background-color: $oc-gray-0;
+$footer-border-color: $oc-cyan-2;
+$footer-background-color: $oc-cyan-0;
 
 // List
 $li-bottom-space: 0.4em;
