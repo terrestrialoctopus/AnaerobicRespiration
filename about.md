@@ -4,4 +4,4 @@ title: 关于
 permalink: /about/
 ---
 
-这是一个关于页面，请编辑about.md以介绍你的博客。
+以围绕原创角色卡莲·托尔明诺维奇·马尔切夫和泽兰·弗兰克·海默为主题的创作。作者为2014和[陆生章鱼](https://archiveofourown.org/users/Margaret42)
