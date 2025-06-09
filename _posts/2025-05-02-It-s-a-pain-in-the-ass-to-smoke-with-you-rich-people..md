@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 和你们有钱人抽烟真是麻烦
-date: 2025-04-17
+date: 2025-05-02
 author: 陆生章鱼
 tags:
   - 歌赛（rip）
