@@ -2,7 +2,7 @@
 layout: post
 title: 卡莲背景时间线
 date: 2025-06-09
-Author: 2014
+author: 2014
 tags: [冷战au, 设定]
 comments: true
 toc: true
