@@ -4,7 +4,7 @@ title: 我非优雅之人
 date: 2025-04-17
 author: 陆生章鱼
 tags:
-  - 歌赛（rip）
+  - 歌塞（rip）
 comments: true
 toc: false
 ---
