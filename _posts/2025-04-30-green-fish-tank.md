@@ -4,7 +4,7 @@ title: 绿鱼缸
 date: 2025-04-30
 author: "2014"
 tags:
-  - 歌赛（rip）
+  - 歌塞（rip）
 comments: true
 toc: false
 ---
