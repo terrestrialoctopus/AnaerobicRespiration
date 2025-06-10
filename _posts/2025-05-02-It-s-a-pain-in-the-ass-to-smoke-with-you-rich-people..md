@@ -5,7 +5,7 @@ date: 2025-05-02
 author: 陆生章鱼
 tags:
   - 歌赛（rip）
-comments: true
+comments: false
 ---
 剧情只有抽烟，没有任何含有营养的内容。
 <!-- more -->
