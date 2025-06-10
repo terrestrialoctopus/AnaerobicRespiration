@@ -6,6 +6,7 @@ author: 陆生章鱼
 tags:
   - 歌赛（rip）
 comments: true
+toc: false
 ---
 他对此表示沉默，他希望有人能替他流眼泪。
 <!-- more -->
