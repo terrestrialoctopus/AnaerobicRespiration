@@ -12,4 +12,4 @@ comments: true
 稿件
 ---
 ![柏林1954](images/commission/Berlin1954.png)
-![策反](images/commission/ instigate_defection.png)
+![策反](images/commission/instigate_defection.png)
