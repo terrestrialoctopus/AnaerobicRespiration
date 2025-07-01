@@ -8,7 +8,7 @@ tags:
   - 约稿
 
 comments: true
-
+---
 稿件
 ---
 ![柏林1954](images/commission/Berlin1954.png)
