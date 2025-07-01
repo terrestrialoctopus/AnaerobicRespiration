@@ -12,4 +12,4 @@ comments: true
 稿件
 ---
 ![柏林1954](https://raw.githubusercontent.com/Margaret42/AnaerobicRespiration/refs/heads/master/images/commission/Berlin1954.png)
-![策反](https://raw.githubusercontent.com/Margaret42/AnaerobicRespiration/refs/heads/master/images/commission/%20instigate_defection.png)
+![策反](https://raw.githubusercontent.com/Margaret42/AnaerobicRespiration/refs/heads/master/images/commission/instigate_defection.png)
