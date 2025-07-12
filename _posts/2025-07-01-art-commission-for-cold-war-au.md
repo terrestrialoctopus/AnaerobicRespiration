@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 稿件
+title: 小漫画
 date: 2025-07-012
 author: "烤鱼烤不熟（画加）"
 tags:
