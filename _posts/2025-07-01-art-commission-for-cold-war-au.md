@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 小漫画
-date: 2025-07-012
+date: 2025-07-12
 author: "烤鱼烤不熟（画加）"
 tags:
   - 冷战au
