@@ -4,7 +4,7 @@ title: 纽约暴雪
 date: 2025-08-10
 author: "2014"
 tags:
-  - 大萧条AU
+  - 大萧条au
 comments: true
 toc: false
 ---
