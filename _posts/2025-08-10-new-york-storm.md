@@ -2,17 +2,18 @@
 layout: post
 title: 纽约暴雪
 date: 2025-08-10
-author:"2014"
+author: "2014"
 tags:
   - 大萧条AU
 comments: true
 toc: false
 ---
-大萧条AU，回忆涉及1919年北俄罗斯干涉行动（North Russia Intervention）中的关键节点：舍尼库尔（Shenkursk）战役
+大萧条AU，回忆涉及1919年北俄罗斯干涉行动（North Russia Intervention）中的关键节点：舍尼库尔（Shenkursk）战役。
 <!-- more -->
 
 
 ---
+
 
 那是个神秘的年份，又湿又冷，数字都是重复出现。1919年，卡莲马尔彻夫十九岁，随军驻扎在距离舍尼库尔十九英里的高地村，未来十九年将无法摆脱的噩梦，降临在他身上。
 
