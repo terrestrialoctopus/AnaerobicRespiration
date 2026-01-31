@@ -4,7 +4,7 @@ title: 过度医疗
 date: 2025-08-27
 author: 陆生章鱼
 tags:
-  - 赛博朋克2077au
+  - 赛博朋克2077AU
 comments: true
 toc: false
 ---
