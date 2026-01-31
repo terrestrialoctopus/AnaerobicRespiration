@@ -4,7 +4,7 @@ title: 1953年后时间线
 date: 2025-06-09
 author: 2014，陆生章鱼
 tags:
-  - 冷战au
+  - 冷战AU
   - 设定
 comments: true
 toc: true
