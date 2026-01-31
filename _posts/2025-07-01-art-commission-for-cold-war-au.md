@@ -4,7 +4,7 @@ title: 小漫画
 date: 2025-07-12
 author: "烤鱼烤不熟（画加）"
 tags:
-  - 冷战au
+  - 冷战AU
   - 约稿
 
 comments: true
