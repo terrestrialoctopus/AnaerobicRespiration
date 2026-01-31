@@ -4,7 +4,7 @@ title: 基金会AU设定整理
 date: 2025-07-11
 author: 2014，陆生章鱼
 tags:
-  - scp基金会au
+  - scp基金会AU
   - 设定
 comments: true
 toc: true
