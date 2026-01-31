@@ -4,7 +4,7 @@ title: 与创作无关，但是赛博朋克2078发生了这些
 date: 2025-08-28
 author: "人外控"
 tags:
-  - 赛博朋克2077au
+  - 赛博朋克2077AU
 
 comments: true
 ---
