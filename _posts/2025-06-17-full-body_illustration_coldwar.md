@@ -4,7 +4,7 @@ title: 冷战AU立绘
 date: 2025-06-17
 author: "大橘猫嘉"
 tags:
-  - 冷战au
+  - 冷战AU
   - 约稿
 
 comments: true
