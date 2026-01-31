@@ -3,7 +3,7 @@ layout: post
 title: 泽兰背景时间线
 date: 2025-06-09
 author: 陆生章鱼
-tags: [冷战au, 设定]
+tags: [冷战AU, 设定]
 comments: true
 toc: false
 ---
