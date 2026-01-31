@@ -4,7 +4,7 @@ title: 冷太阳
 date: 2025-06-08
 author: 2014
 tags:
-  - 冷战au
+  - 冷战AU
 comments: true
 toc: false
 ---
