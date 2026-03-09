@@ -129,3 +129,5 @@ exclude:
   - README.md
   - CNAME
 
+feed:
+  title: Anaerobic Respiration
