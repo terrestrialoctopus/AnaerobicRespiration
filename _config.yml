@@ -79,11 +79,11 @@ disqus:  #shortname
 
 # 输入Gitalk相关设定，即可添加评论区，具体请看教程
 gitalk:
-  clientID: 
-  clientSecret: 
-  repo: 
-  owner: 
-  proxy:
+  clientID: Ov23liJhnE86Z4MlbjMG
+  clientSecret: 23e9dbdbaae072c03305eafd543db40e1655b14e
+  repo: AnaerobicRespiration
+  owner: terrestrialoctopus
+  proxy: solitary-frost-132e.margaretwang4242.workers.dev/https://github.com/login/oauth/access_token
 
 # 输入Google Analytics web tracking code
 google_analytics:
