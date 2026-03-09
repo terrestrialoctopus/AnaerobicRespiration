@@ -31,33 +31,80 @@
 </div>
 
 
+
 <!-- 订阅弹出框 -->
 <div id="subscribe-modal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.5); z-index:9999; justify-content:center; align-items:center;">
   <div style="background:#fff; border-radius:8px; padding:2rem; max-width:420px; width:90%; position:relative; box-shadow:0 4px 20px rgba(0,0,0,0.2);">
     <button id="close-modal" style="position:absolute; top:0.75rem; right:1rem; background:none; border:none; font-size:1.4rem; cursor:pointer; color:#999;">&times;</button>
     <h3 style="margin:0 0 0.5rem 0; font-size:1.1rem;">订阅邮件推送</h3>
     <p style="margin:0 0 1rem 0; font-size:0.85rem; color:#666;">有新文章时直接发到你的邮箱</p>
-    <iframe src="https://1234477721.substack.com/embed"
-      width="100%" height="150"
-      style="border:none; background:transparent;"
-      frameborder="0" scrolling="no">
-    </iframe>
+    <div style="display:flex; gap:0.5rem;">
+      <input id="subscribe-email" type="email" placeholder="your@email.com"
+        style="flex:1; padding:0.6rem 0.8rem; border:1px solid #ddd; border-radius:4px; font-size:0.9rem; outline:none;" />
+      <button id="subscribe-submit"
+        style="padding:0.6rem 1rem; background:#333; color:#fff; border:none; border-radius:4px; font-size:0.9rem; cursor:pointer; white-space:nowrap;">
+        订阅
+      </button>
+    </div>
+    <p id="subscribe-msg" style="margin:0.75rem 0 0 0; font-size:0.85rem; display:none;"></p>
   </div>
 </div>
 
 <script>
   var btn = document.getElementById('subscribe-btn');
   var modal = document.getElementById('subscribe-modal');
-  var close = document.getElementById('close-modal');
+  var closeBtn = document.getElementById('close-modal');
+  var submitBtn = document.getElementById('subscribe-submit');
+  var emailInput = document.getElementById('subscribe-email');
+  var msg = document.getElementById('subscribe-msg');
 
   btn.addEventListener('click', function(e) {
     e.preventDefault();
     modal.style.display = 'flex';
+    emailInput.value = '';
+    msg.style.display = 'none';
   });
-  close.addEventListener('click', function() {
+  closeBtn.addEventListener('click', function() {
     modal.style.display = 'none';
   });
   modal.addEventListener('click', function(e) {
     if (e.target === modal) modal.style.display = 'none';
+  });
+
+  submitBtn.addEventListener('click', function() {
+    var email = emailInput.value.trim();
+    if (!email || !email.includes('@')) {
+      msg.textContent = '请输入有效的邮箱地址';
+      msg.style.color = '#e00';
+      msg.style.display = 'block';
+      return;
+    }
+    submitBtn.textContent = '提交中…';
+    submitBtn.disabled = true;
+
+    fetch('https://substackapi.com/api/subscribe', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ email: email, domain: '1234477721.substack.com' })
+    })
+    .then(function(res) {
+      if (res.ok) {
+        msg.textContent = '✓ 订阅成功！请查收确认邮件。';
+        msg.style.color = '#2a2';
+      } else {
+        msg.textContent = '提交失败，请稍后再试。';
+        msg.style.color = '#e00';
+      }
+      msg.style.display = 'block';
+      submitBtn.textContent = '订阅';
+      submitBtn.disabled = false;
+    })
+    .catch(function() {
+      msg.textContent = '提交失败，请稍后再试。';
+      msg.style.color = '#e00';
+      msg.style.display = 'block';
+      submitBtn.textContent = '订阅';
+      submitBtn.disabled = false;
+    });
   });
 </script>
