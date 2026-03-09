@@ -18,6 +18,8 @@
       <a href="{{ site.baseurl }}{{ nav.url }}">{{ nav.name }}</a>
       {% endif %}
       {% endfor %}
+      <!-- 订阅按钮 -->
+      <a href="#" id="subscribe-btn">订阅</a>
     </nav>
   </div>
 
@@ -27,3 +29,35 @@
     </footer>
   </div>
 </div>
+
+
+<!-- 订阅弹出框 -->
+<div id="subscribe-modal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.5); z-index:9999; justify-content:center; align-items:center;">
+  <div style="background:#fff; border-radius:8px; padding:2rem; max-width:420px; width:90%; position:relative; box-shadow:0 4px 20px rgba(0,0,0,0.2);">
+    <button id="close-modal" style="position:absolute; top:0.75rem; right:1rem; background:none; border:none; font-size:1.4rem; cursor:pointer; color:#999;">&times;</button>
+    <h3 style="margin:0 0 0.5rem 0; font-size:1.1rem;">订阅邮件推送</h3>
+    <p style="margin:0 0 1rem 0; font-size:0.85rem; color:#666;">有新文章时直接发到你的邮箱</p>
+    <iframe src="https://1234477721.substack.com/embed"
+      width="100%" height="150"
+      style="border:none; background:transparent;"
+      frameborder="0" scrolling="no">
+    </iframe>
+  </div>
+</div>
+
+<script>
+  var btn = document.getElementById('subscribe-btn');
+  var modal = document.getElementById('subscribe-modal');
+  var close = document.getElementById('close-modal');
+
+  btn.addEventListener('click', function(e) {
+    e.preventDefault();
+    modal.style.display = 'flex';
+  });
+  close.addEventListener('click', function() {
+    modal.style.display = 'none';
+  });
+  modal.addEventListener('click', function(e) {
+    if (e.target === modal) modal.style.display = 'none';
+  });
+</script>
