@@ -83,7 +83,7 @@ gitalk:
   clientSecret: 23e9dbdbaae072c03305eafd543db40e1655b14e
   repo: AnaerobicRespiration
   owner: terrestrialoctopus
-  proxy: ttps://solitary-frost-132e.margaretwang4242.workers.dev
+  proxy: https://solitary-frost-132e.margaretwang4242.workers.dev
 
 # 输入Google Analytics web tracking code
 google_analytics:
