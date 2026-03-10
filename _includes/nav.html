@@ -3,7 +3,7 @@
     <div class="site-info">
       {% if site.avatar %}
         <a href="{{ site.baseurl }}/" class="site-avatar"><img src="{{ site.avatar }}" /></a>
-      {% endif %} 
+      {% endif %}
       <h1 class="site-name"><a href="{{ site.baseurl }}/">{{ site.name }}</a></h1>
       <p class="site-description">{{ site.description }}</p>
     </div>
@@ -12,13 +12,13 @@
   <div class="navlist">
     <nav>
       {% for nav in site.navigation %}
-      {% if nav.url contains 'http://' or nav.url contains 'https://' %}
-      <a href="{{ nav.url }}">{{ nav.name }}</a>
-      {% else %}
-      <a href="{{ site.baseurl }}{{ nav.url }}">{{ nav.name }}</a>
-      {% endif %}
+        {% if nav.url contains 'http://' or nav.url contains 'https://' %}
+          <a href="{{ nav.url }}">{{ nav.name }}</a>
+        {% else %}
+          <a href="{{ site.baseurl }}{{ nav.url }}">{{ nav.name }}</a>
+        {% endif %}
       {% endfor %}
-      <!-- 订阅按钮 -->
+
       <a href="#" id="subscribe-btn">邮箱订阅</a>
     </nav>
   </div>
@@ -30,84 +30,75 @@
   </div>
 </div>
 
+<!-- 订阅弹窗：默认隐藏，点击 nav 按钮后打开 -->
+<div
+  id="subscribe-modal"
+  aria-hidden="true"
+  style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.5); z-index:9999; justify-content:center; align-items:center;"
+>
+  <div
+    style="background:#fff; border-radius:8px; padding:2rem; max-width:520px; width:90%; position:relative; box-shadow:0 4px 20px rgba(0,0,0,0.2);"
+  >
+    <button
+      id="close-modal"
+      aria-label="关闭订阅窗口"
+      style="position:absolute; top:0.75rem; right:1rem; background:none; border:none; font-size:1.4rem; cursor:pointer; color:#999;"
+    >
+      &times;
+    </button>
 
+    <h3 style="margin:0 0 0.75rem 0; font-size:1.1rem;">订阅邮件推送</h3>
+    <p style="margin:0 0 1rem 0; font-size:0.85rem; color:#666;">
+      输入邮箱即可订阅更新提醒。
+    </p>
 
-
-
-<!-- 订阅弹出框 -->
-<div id="subscribe-modal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.5); z-index:9999; justify-content:center; align-items:center;">
-  <div style="background:#fff; border-radius:8px; padding:2rem; max-width:420px; width:90%; position:relative; box-shadow:0 4px 20px rgba(0,0,0,0.2);">
-    <button id="close-modal" style="position:absolute; top:0.75rem; right:1rem; background:none; border:none; font-size:1.4rem; cursor:pointer; color:#999;">&times;</button>
-    <h3 style="margin:0 0 0.5rem 0; font-size:1.1rem;">订阅邮件推送</h3>
-    <p style="margin:0 0 1rem 0; font-size:0.85rem; color:#666;">有文章更新时，对您发送更新提醒:）</p>
-    <div style="display:flex; gap:0.5rem; margin-bottom:0.75rem;">
-      <input id="subscribe-email" type="email" placeholder="your@email.com" required
-        style="flex:1; padding:0.6rem 0.8rem; border:1px solid #ddd; border-radius:4px; font-size:0.9rem;" />
-      <button id="subscribe-submit"
-        style="padding:0.6rem 1rem; background:#333; color:#fff; border:none; border-radius:4px; font-size:0.9rem; cursor:pointer;">
-        订阅
-      </button>
+    <div style="display:flex; justify-content:center;">
+      <iframe
+        src="https://1234477721.substack.com/embed"
+        width="480"
+        height="320"
+        style="border: 1px solid #EEE; background: white; max-width: 100%;"
+        frameborder="0"
+        scrolling="no"
+      ></iframe>
     </div>
-    <p id="subscribe-msg" style="margin:0; font-size:0.85rem; display:none;"></p>
   </div>
 </div>
 
 <script>
-  var btn = document.getElementById('subscribe-btn');
-  var modal = document.getElementById('subscribe-modal');
-  var closeBtn = document.getElementById('close-modal');
-  var submitBtn = document.getElementById('subscribe-submit');
-  var emailInput = document.getElementById('subscribe-email');
-  var msg = document.getElementById('subscribe-msg');
+  (function () {
+    var btn = document.getElementById('subscribe-btn');
+    var modal = document.getElementById('subscribe-modal');
+    var closeBtn = document.getElementById('close-modal');
 
-  btn.addEventListener('click', function(e) {
-    e.preventDefault();
-    modal.style.display = 'flex';
-    emailInput.value = '';
-    msg.style.display = 'none';
-  });
-  closeBtn.addEventListener('click', function() {
-    modal.style.display = 'none';
-  });
-  modal.addEventListener('click', function(e) {
-    if (e.target === modal) modal.style.display = 'none';
-  });
+    if (!btn || !modal || !closeBtn) return;
 
-  submitBtn.addEventListener('click', function() {
-    var email = emailInput.value.trim();
-    if (!email || !email.includes('@')) {
-      msg.textContent = '请输入有效的邮箱地址';
-      msg.style.color = '#c00';
-      msg.style.display = 'block';
-      return;
+    function openModal(e) {
+      if (e) e.preventDefault();
+      modal.style.display = 'flex';
+      modal.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
     }
-    submitBtn.textContent = '提交中…';
-    submitBtn.disabled = true;
 
-    fetch('https://emailsubscribers.margaretwang4242.workers.dev', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ email: email })
-    })
-    .then(function(res) {
-      if (res.ok) {
-        msg.textContent = '✓ 订阅成功！请查收确认邮件。';
-        msg.style.color = '#2a7';
-        emailInput.value = '';
-      } else {
-        msg.textContent = '提交失败，请稍后再试。';
-        msg.style.color = '#c00';
+    function closeModal() {
+      modal.style.display = 'none';
+      modal.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+    }
+
+    btn.addEventListener('click', openModal);
+    closeBtn.addEventListener('click', closeModal);
+
+    modal.addEventListener('click', function (e) {
+      if (e.target === modal) {
+        closeModal();
       }
-      msg.style.display = 'block';
-      submitBtn.textContent = '订阅';
-      submitBtn.disabled = false;
-    })
-    .catch(function() {
-      msg.textContent = '提交失败，请稍后再试。';
-      msg.style.color = '#c00';
-      msg.style.display = 'block';
-      submitBtn.textContent = '订阅';
-      submitBtn.disabled = false;
     });
-  });
+
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && modal.style.display === 'flex') {
+        closeModal();
+      }
+    });
+  })();
 </script>
