@@ -40,35 +40,74 @@
     <button id="close-modal" style="position:absolute; top:0.75rem; right:1rem; background:none; border:none; font-size:1.4rem; cursor:pointer; color:#999;">&times;</button>
     <h3 style="margin:0 0 0.5rem 0; font-size:1.1rem;">订阅邮件推送</h3>
     <p style="margin:0 0 1rem 0; font-size:0.85rem; color:#666;">有新文章时直接发到你的邮箱</p>
-    <form action="https://1234477721.substack.com/subscribe" method="post" target="_blank"
-      style="display:flex; gap:0.5rem;">
-      <input type="email" name="email" placeholder="your@email.com" required
+    <div style="display:flex; gap:0.5rem; margin-bottom:0.75rem;">
+      <input id="subscribe-email" type="email" placeholder="your@email.com" required
         style="flex:1; padding:0.6rem 0.8rem; border:1px solid #ddd; border-radius:4px; font-size:0.9rem;" />
-      <input type="hidden" name="first_url" value="" id="first_url" />
-      <button type="submit"
+      <button id="subscribe-submit"
         style="padding:0.6rem 1rem; background:#333; color:#fff; border:none; border-radius:4px; font-size:0.9rem; cursor:pointer;">
         订阅
       </button>
-    </form>
-    <p style="margin:0.6rem 0 0 0; font-size:0.78rem; color:#aaa;">提交后会在新标签页显示确认页面</p>
+    </div>
+    <p id="subscribe-msg" style="margin:0; font-size:0.85rem; display:none;"></p>
   </div>
 </div>
 
 <script>
-  document.getElementById('first_url').value = window.location.href;
-
   var btn = document.getElementById('subscribe-btn');
   var modal = document.getElementById('subscribe-modal');
   var closeBtn = document.getElementById('close-modal');
+  var submitBtn = document.getElementById('subscribe-submit');
+  var emailInput = document.getElementById('subscribe-email');
+  var msg = document.getElementById('subscribe-msg');
 
   btn.addEventListener('click', function(e) {
     e.preventDefault();
     modal.style.display = 'flex';
+    emailInput.value = '';
+    msg.style.display = 'none';
   });
   closeBtn.addEventListener('click', function() {
     modal.style.display = 'none';
   });
   modal.addEventListener('click', function(e) {
     if (e.target === modal) modal.style.display = 'none';
+  });
+
+  submitBtn.addEventListener('click', function() {
+    var email = emailInput.value.trim();
+    if (!email || !email.includes('@')) {
+      msg.textContent = '请输入有效的邮箱地址';
+      msg.style.color = '#c00';
+      msg.style.display = 'block';
+      return;
+    }
+    submitBtn.textContent = '提交中…';
+    submitBtn.disabled = true;
+
+    fetch('https://emailsubscribers.margaretwang4242.workers.dev', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ email: email })
+    })
+    .then(function(res) {
+      if (res.ok) {
+        msg.textContent = '✓ 订阅成功！请查收确认邮件。';
+        msg.style.color = '#2a7';
+        emailInput.value = '';
+      } else {
+        msg.textContent = '提交失败，请稍后再试。';
+        msg.style.color = '#c00';
+      }
+      msg.style.display = 'block';
+      submitBtn.textContent = '订阅';
+      submitBtn.disabled = false;
+    })
+    .catch(function() {
+      msg.textContent = '提交失败，请稍后再试。';
+      msg.style.color = '#c00';
+      msg.style.display = 'block';
+      submitBtn.textContent = '订阅';
+      submitBtn.disabled = false;
+    });
   });
 </script>
