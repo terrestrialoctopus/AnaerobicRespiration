@@ -19,7 +19,7 @@
         {% endif %}
       {% endfor %}
 
-      <a href="#" id="subscribe-btn">邮箱订阅</a>
+      <a href="{{ site.baseurl }}/subscribe/">邮箱订阅</a>
     </nav>
   </div>
 
@@ -30,75 +30,4 @@
   </div>
 </div>
 
-<!-- 订阅弹窗：默认隐藏，点击 nav 按钮后打开 -->
-<div
-  id="subscribe-modal"
-  aria-hidden="true"
-  style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.5); z-index:9999; justify-content:center; align-items:center;"
->
-  <div
-    style="background:#fff; border-radius:8px; padding:2rem; max-width:520px; width:90%; position:relative; box-shadow:0 4px 20px rgba(0,0,0,0.2);"
-  >
-    <button
-      id="close-modal"
-      aria-label="关闭订阅窗口"
-      style="position:absolute; top:0.75rem; right:1rem; background:none; border:none; font-size:1.4rem; cursor:pointer; color:#999;"
-    >
-      &times;
-    </button>
 
-    <h3 style="margin:0 0 0.75rem 0; font-size:1.1rem;">订阅邮件推送</h3>
-    <p style="margin:0 0 1rem 0; font-size:0.85rem; color:#666;">
-      输入邮箱即可订阅更新提醒。
-    </p>
-
-    <div style="display:flex; justify-content:center;">
-      <iframe
-        src="https://1234477721.substack.com/embed"
-        width="480"
-        height="320"
-        style="border: 1px solid #EEE; background: white; max-width: 100%;"
-        frameborder="0"
-        scrolling="no"
-      ></iframe>
-    </div>
-  </div>
-</div>
-
-<script>
-  (function () {
-    var btn = document.getElementById('subscribe-btn');
-    var modal = document.getElementById('subscribe-modal');
-    var closeBtn = document.getElementById('close-modal');
-
-    if (!btn || !modal || !closeBtn) return;
-
-    function openModal(e) {
-      if (e) e.preventDefault();
-      modal.style.display = 'flex';
-      modal.setAttribute('aria-hidden', 'false');
-      document.body.style.overflow = 'hidden';
-    }
-
-    function closeModal() {
-      modal.style.display = 'none';
-      modal.setAttribute('aria-hidden', 'true');
-      document.body.style.overflow = '';
-    }
-
-    btn.addEventListener('click', openModal);
-    closeBtn.addEventListener('click', closeModal);
-
-    modal.addEventListener('click', function (e) {
-      if (e.target === modal) {
-        closeModal();
-      }
-    });
-
-    document.addEventListener('keydown', function (e) {
-      if (e.key === 'Escape' && modal.style.display === 'flex') {
-        closeModal();
-      }
-    });
-  })();
-</script>
