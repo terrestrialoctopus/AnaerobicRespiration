@@ -1,0 +1,36 @@
+<div id="subscribe-modal" class="subscribe-modal" aria-hidden="true">
+  <div class="subscribe-modal__backdrop" data-close-subscribe></div>
+
+  <div
+    class="subscribe-modal__panel"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="subscribe-modal-title"
+  >
+    <button
+      type="button"
+      class="subscribe-modal__close"
+      aria-label="Close subscription window"
+      data-close-subscribe
+    >
+      ×
+    </button>
+
+    <h2 id="subscribe-modal-title" class="subscribe-modal__title">Subscribe</h2>
+
+    <div class="subscribe-modal__embed">
+      <!-- 把 Substack 后台 Settings → Growth features 里生成的官方 embed code 原样粘贴到这里 -->
+      <!-- 示例： -->
+      <!--
+      <iframe
+        src="YOUR_SUBSTACK_EMBED_URL"
+        width="480"
+        height="320"
+        style="border:1px solid #EEE; background:white;"
+        frameborder="0"
+        scrolling="no">
+      </iframe>
+      -->
+    </div>
+  </div>
+</div>
